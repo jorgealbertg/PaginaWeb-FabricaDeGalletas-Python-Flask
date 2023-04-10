@@ -1,0 +1,59 @@
+{% include 'header.html' %}
+<p style="background-color:rgb(249, 249, 249);">Edición de ingredientes en fórmula</p>
+{% for relacion in relaciones  %}
+
+
+<form method="post" action="/update3" enctype="multipart/form-data">
+    
+
+    <div class="card">
+        <div class="card-header">
+            Editar ingrediente
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Datos del ingrediente</h5>
+
+            <p class="card-text">
+
+            <div class="form-group">
+                <label for="txtIdFormRel">Id de la fórmula:</label>
+                <input id="txtIdFormRel" value= "{{relacion[1] }}" class="form-control" type="text" name="txtIdFormRel">
+            </div>
+
+
+            <div class="form-group">
+                <label for="txtIdIngRel">Id del ingrediente:</label>
+                <input id="txtIdIngRel" value= "{{relacion[2]}}" class="form-control" type="text" name="txtIdIngRel">
+            </div>
+
+            <div class="form-group">
+                <label for="txtCantIngRel">Cantidad de ingredientes necesarios:</label>
+                <input id="txtCantIngRel" value= "{{relacion[3]}}" class="form-control" type="text" name="txtCantIngRel">
+            </div>
+
+            
+            <input type="hidden" value= "{{relacion[0]}}" name="txtIDRel" id="txtIDRel">
+            <br/>
+
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-success" value="Modificar">
+                <a href="{{url_for('index')}}" class="btn btn-primary">Regresar </a>
+                
+            </div>
+
+            
+
+
+            </p>
+        </div>
+    </div>
+
+
+    
+    
+</form>
+    
+{% endfor %}
+
+{% include 'footer.html' %}

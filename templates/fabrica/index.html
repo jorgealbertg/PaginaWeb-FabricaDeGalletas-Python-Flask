@@ -1,0 +1,122 @@
+    {% include 'header.html' %}
+
+    <br/>
+    <a href="{{url_for('create')}}" class="btn btn-success">
+        Ingresar nuevo ingrediente
+
+    </a>
+    <table class="table table-dark">
+        <thead class="thead-light">
+            <tr>
+                <th>#</th>
+                <th>Nombre del ingrediente</th>
+                <th>Cantidad del Ingrediente</th>
+                <th>Representación del Ingrediente</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ingrediente in ingredientes %}
+                
+            <tr>
+                <td>{{ingrediente[0]}}</td>
+                        
+                <td>{{ingrediente[1]}}</td>
+                <td>{{ingrediente[2]}}</td>
+
+                <td>
+                    <img class="img-thumbnail" width="100" src="uploads/{{ingrediente[3] }}" alt="">
+                  
+                </td>
+
+                <td> <a class="btn btn-warning" href="/edit/{{ingrediente[0]}}">Editar</a>
+                    
+                    <a onclick="return confirm('¿Desea borrar al ingrediente?')" class="btn btn-danger" href="/destroy/{{ingrediente[0]}}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+    <a href="{{url_for('create2')}}" class="btn btn-success">
+        Ingresar nueva formula
+
+    </a>
+
+    <table class="table table-dark">
+        <thead class="thead-light">
+            <tr>
+                <th>#</th>
+                <th>Nombre de la fórmula</th>
+                <th>Cantidad de Ingredientes</th>
+                <th>Representación de la fórmula</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for formula in formulas %}
+            <tr>
+                <td>{{formula[0]}}</td>
+                <td>{{formula[1]}}</td>
+                <td>{{formula[2]}}</td>
+
+                <td>
+                    <img class="img-thumbnail" width="100" src="uploads/{{formula[3] }}" alt="">
+                  
+                </td>
+
+                <td> <a class="btn btn-warning" href="/edit2/{{formula[0]}}">Editar</a>
+                    
+                    <a onclick="return confirm('¿Desea borrar la fórmula?')" class="btn btn-danger" href="/destroy2/{{formula[0]}}">Eliminar</a>
+                </td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+    <a href="{{url_for('create3')}}" class="btn btn-success">
+        Ingresar cantidad de ingredientes necesarios en fórmulas
+
+    </a>
+
+    <table class="table table-dark">
+        <thead class="thead-light">
+            <tr>
+                <th>#</th>
+                <th>Id de la fórmula</th>
+                <th>Id del Ingrediente</th>
+                <th>Cantidad de Ingredientes Necesarios</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for relacion in relaciones %}
+            <tr>
+                <td>{{relacion[0]}}</td>
+                <td>{{relacion[1]}}</td>
+                <td>{{relacion[2]}}</td>
+                <td>{{relacion[3]}}</td>
+
+
+                <td> <a class="btn btn-warning" href="/edit3/{{relacion[0]}}">Editar</a>
+                    
+                    <a onclick="return confirm('¿Desea borrar los ingredientes necesarios?')" class="btn btn-danger" href="/destroy3/{{relacion[0]}}">Eliminar</a>
+                </td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+    
+
+    
+    
+</form>
+
+{% include 'footer.html' %}
+

@@ -1,0 +1,62 @@
+{% include 'header.html' %}
+<p style="background-color:rgb(249, 249, 249);">Edición de fórmulas</p>
+{% for formula in formulas  %}
+
+
+<form method="post" action="/update2" enctype="multipart/form-data">
+    
+
+    <div class="card">
+        <div class="card-header">
+            Editar fórmula
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Datos de la fórmula</h5>
+
+            <p class="card-text">
+
+            <div class="form-group">
+                <label for="txtNombreForm">Nombre de la fórmula:</label>
+                <input id="txtNombreForm" value= "{{formula[1] }}" class="form-control" type="text" name="txtNombreForm">
+            </div>
+
+
+            <div class="form-group">
+                <label for="txtCantidadForm">Cantidad de ingredientes:</label>
+                <input id="txtCantidadForm" value= "{{formula[2]}}" class="form-control" type="text" name="txtCantidadForm">
+            </div>
+
+            <div class="form-group">
+                <label for="txtImagenForm">Imagen de la fórmula:</label>
+
+                <img class="img-thumbnail" width="100" src="{{url_for('uploads', nombreImagen=formula[3])}}" alt="">
+                
+                <input id="txtImagenForm" class="form-control" type="file" name="txtImagenForm">
+            </div>
+
+            
+            <input type="hidden" value= "{{formula[0]}}" name="txtIDForm" id="txtIDForm">
+            <br/>
+
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-success" value="Modificar">
+                <a href="{{url_for('index')}}" class="btn btn-primary">Regresar </a>
+                
+            </div>
+
+            
+
+
+            </p>
+        </div>
+    </div>
+
+
+    
+    
+</form>
+    
+{% endfor %}
+
+{% include 'footer.html' %}

@@ -1,0 +1,112 @@
+{% include 'header.html' %}
+
+<style>
+	.center-img {
+		display: block; /* convierte la imagen en bloque */
+		margin: 0 auto; /* aplica margen automático en los laterales */
+	}
+    .container {
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0px 40px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .title {
+        font-size: 24px;
+        font-weight: bold;
+        color: #000;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .container2 {
+        background-color: #000000;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0px 40px 40px rgba(255, 255, 255, 0.2);
+    }
+
+    .title2 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #ffffff;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+</style>
+
+<table class="table table-dark">
+	<thead class="thead-light">
+		<tr>
+			<th><center>Galletas listas &#x2713; [Resumen de Estado] <br>
+				Cantidad Preparada: {{_cantob}} Unidades de {{_recetaob}}
+            </center>
+            </th>
+
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+			<img src="https://images.pexels.com/photos/1775283/pexels-photo-1775283.jpeg?cs=srgb&dl=pexels-tina-nord-1775283.jpg&fm=jpg" alt="final",  width="450" height="350", class="center-img"> 
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<table class="table table-dark">
+	<thead class="thead-light">
+		<tr>
+			<th>Id del Ingrediente Utilizado</th>
+			<th>Nombre del Ingrediente Utilizado </th>
+			<th>Cantidad del Ingrediente Utilizado </th>
+			<th>Cantidad Actual Disponible en Almacen</th>
+		</tr>
+
+		<tr>
+			<td>
+				<table>
+					{% for id_ing in lista_id_ing_perten_receta_obt %}
+						<tr>
+							<td>{{ id_ing }}</td>
+						</tr>
+					{% endfor %}
+				</table>
+			</td>
+			<td>
+				<table>
+					{% for nom_ing in lista_nom_ing_nec_pert_id_obt %}
+						<tr>
+							<td>{{ nom_ing }}</td>
+						</tr>
+					{% endfor %}
+				</table>
+			</td>
+			<td>
+				<table>
+					{% for ing_nec in lista_cant_ing_nec_mult_cantobt %}
+						<tr>
+							<td>{{ ing_nec }}</td>
+						</tr>
+					{% endfor %}
+				</table>
+			</td>
+			<td>
+				<table>
+					{% for ing_almac in lista_cant_ing_finales_almacen %}
+						<tr>
+							<td>{{ ing_almac }}</td>
+						</tr>
+					{% endfor %}
+				</table>
+			</td>
+		</tr>
+</table>
+
+<div class="form-group">
+    <a href="{{url_for('fabricacion_front')}}" class="btn btn-success"> Fabricar más Galletas </a>
+    <a href="{{url_for('index')}}" class="btn btn-primary">Regresar al Inicio </a>
+    
+</div>
+

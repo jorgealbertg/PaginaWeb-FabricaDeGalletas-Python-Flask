@@ -1,0 +1,62 @@
+{% include 'header.html' %}
+
+{% with messages= get_flashed_messages() %}
+
+{% if messages %}
+    <div class="alert alert-danger" role="alert">
+        {% for message in messages %}
+            {{ message}}
+        {% endfor %}
+    </div>
+    
+{% endif %}
+
+{% endwith %}
+
+
+<br>
+<br>
+
+<form method="post" action="/store3" enctype="multipart/form-data">
+    
+    <div class="card">
+        <div class="card-header">
+            Ingresar ingrediente
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Datos del ingrediente</h5>
+            <p class="card-text">
+
+            <div class="form-group">
+                <label for="txtIdFormRel">Id de la fórmula a relacionar:</label>
+                <input id="txtIdFormRel" class="form-control" type="text" name="txtIdFormRel">
+            </div>
+
+            <div class="form-group">
+                <label for="txtIdIngRel">Id del ingrediente a relacionar:</label>
+                <input id="txtIdIngRel" class="form-control" type="text" name="txtIdIngRel">
+            </div>
+
+            <div class="form-group">
+                <label for="txtCantRel">Cantidad para una galleta:</label>
+                <input id="txtCantRel" class="form-control" type="text" name="txtCantRel">
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-success" value="Agregar">
+                <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
+                
+            </div>    
+
+                
+
+            </p>
+        </div>
+    </div>
+
+    
+    
+</form>
+
+{% include 'footer.html' %}

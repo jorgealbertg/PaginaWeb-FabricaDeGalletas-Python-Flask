@@ -1,0 +1,92 @@
+{% include 'header.html' %}
+
+
+<style>
+	.center-img {
+		display: block; /* convierte la imagen en bloque */
+		margin: 0 auto; /* aplica margen automático en los laterales */
+	}
+    .container {
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0px 40px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .title {
+        font-size: 24px;
+        font-weight: bold;
+        color: #000;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .container2 {
+        background-color: #000000;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0px 40px 40px rgba(255, 255, 255, 0.2);
+    }
+
+    .title2 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #ffffff;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+</style>
+
+
+<div class="container">
+    <div class="title">Proceso de Horneado Listo &#x2713;</div>
+</div>
+
+<div class="container2">
+    <div class="title2">Iniciando Proceso de Reposo y Entrega &#x231B;</div>
+</div>
+
+
+<style>
+    progress {
+        display: block;
+        margin: 50px auto;
+        width: 300px;
+        height: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f1f1f1;
+    }
+    progress::-webkit-progress-value {
+        background-color: #4CAF50;
+        border-radius: 5px;
+    }
+    progress::-webkit-progress-bar {
+        background-color: #f1f1f1;
+        border-radius: 5px;
+    }
+    progress::-moz-progress-bar {
+        background-color: #4CAF50;
+        border-radius: 5px;
+    }
+</style>
+
+<progress id="myProgress" value="0" max="100"></progress>
+<script>
+    var bar = document.getElementById("myProgress");
+    var val = 0;
+    var timer = setInterval(function() {
+        if (val >= 100) {
+            clearInterval(timer);
+        } else {
+            val++;
+            bar.value = val;
+        }
+    }, 70);
+</script>
+
+<div class="container">
+<img src="https://media.tenor.com/h0m2dBCAdh4AAAAC/sml-chef-pee-pee.gif" alt="recib",  width="600" height="400", class="center-img"> 
+</div>
+
+<meta http-equiv="refresh" content="7; URL='{{url_for('galletas_listas_final')}}'" />
